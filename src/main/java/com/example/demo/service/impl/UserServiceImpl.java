@@ -41,4 +41,10 @@ public class UserServiceImpl implements UserService{
 		User user = userRepo.save(modelMapper.map(userDTO, User.class));
 		return modelMapper.map(user, UserDTO.class);
 	}
+	
+	@Override
+	public String deleteUser(Integer id) {
+		userRepo.deleteById(id);
+		return "deleted : " + id;
+	}
 }

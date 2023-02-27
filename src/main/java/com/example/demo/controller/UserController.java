@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.UserDTO;
@@ -37,7 +38,7 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/deleteUser")
-	public String deleteUser() {
-		return "simple-user-delete";
+	public String deleteUser(@RequestParam Integer id) {
+		return userService.deleteUser(id);
 	}
 }
