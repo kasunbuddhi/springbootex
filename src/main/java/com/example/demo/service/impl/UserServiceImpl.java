@@ -1,6 +1,9 @@
 package com.example.demo.service.impl;
 
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,5 +26,13 @@ public class UserServiceImpl implements UserService{
 	public UserDTO saveUser(UserDTO userDTO) {
 		User user = userRepo.save(modelMapper.map(userDTO, User.class));
 		return modelMapper.map(user, UserDTO.class);
+	}
+	
+	@Override
+	public List<UserDTO> getAllUsers() {
+		List<User> userList = userRepo.findAll();
+		List<UserDTO> entityToDto = modelMapper.map(userList, new TypeToken<List<UserDTO>>() {
+		}.getType());
+		return entityToDto;
 	}
 }
