@@ -8,5 +8,7 @@ public interface UserService {
 	UserDTO saveUser(UserDTO userDTO);
 
 	List<UserDTO> getAllUsers();
+	
+	UserDTO updateUser(UserDTO userDTO);
 
 }
