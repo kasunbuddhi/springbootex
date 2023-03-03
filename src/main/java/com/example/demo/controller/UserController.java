@@ -46,4 +46,9 @@ public class UserController {
 	public UserDTO getUserById(@RequestParam Integer id) {
 		return userService.getUserById(id);
 	}
+	
+	@GetMapping("/getUserByNameAddress")
+	public UserDTO getUserByNameAddress(@RequestParam String name, @RequestParam String address) {
+		return userService.getUserByNameAddress(name, address);
+	}
 }

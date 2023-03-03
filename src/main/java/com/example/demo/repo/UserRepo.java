@@ -11,4 +11,8 @@ public interface UserRepo extends JpaRepository<User, Integer>{
 	@Query(value = "select * from User u where u.id = :userId", 
 			  nativeQuery = true)
 	public User getUserById(@Param("userId")Integer userId);
+	
+	@Query(value = "select * from User u where u.name = :name and address = :address", 
+			  nativeQuery = true)
+	public User getUserByNameAddress(@Param("name")String name, @Param("address")String address);
 }

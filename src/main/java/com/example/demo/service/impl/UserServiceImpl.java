@@ -54,4 +54,13 @@ public class UserServiceImpl implements UserService{
 		UserDTO userDto = modelMapper.map(user, UserDTO.class);
 		return userDto;
 	}
+
+	@Override
+	public UserDTO getUserByNameAddress(String name, String address) {
+		User user = userRepo.getUserByNameAddress(name, address);
+		UserDTO userDto = modelMapper.map(user, UserDTO.class);
+		return userDto;
+	}
+	
+	
 }
