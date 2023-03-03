@@ -41,4 +41,9 @@ public class UserController {
 	public String deleteUser(@RequestParam Integer id) {
 		return userService.deleteUser(id);
 	}
+	
+	@GetMapping("/getUserById")
+	public UserDTO getUserById(@RequestParam Integer id) {
+		return userService.getUserById(id);
+	}
 }

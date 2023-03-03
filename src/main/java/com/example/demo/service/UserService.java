@@ -12,5 +12,7 @@ public interface UserService {
 	UserDTO updateUser(UserDTO userDTO);
 
 	String deleteUser(Integer id);
+	
+	UserDTO getUserById(Integer Id);
 
 }
